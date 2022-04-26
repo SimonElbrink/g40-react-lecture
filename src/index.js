@@ -1,17 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDOM from 'react-dom';
+//import App from './1ex-class-component/App'
+//import App from './2ex-Function-component/App'
+//import App from './3ex-arrow-function/App'
+//import Table from './4ex-table/Table'
+//import StylingExamples from './5ex-css/StylingExamples';
+import NameList from './6ex-variable-function/NameList'
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+//const message = <h1>Hello Group 40!</h1>;
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+ReactDOM.render(
+    <NameList/>,
+    document.getElementById('lecture')
+    );
