@@ -11,8 +11,12 @@ import 'bootstrap/dist/css/bootstrap.css'
 // import MenuList from './7ex-props/MenuList';
 // import Car from './8ex-state/Car';
 
-import Counter from './9ex-events/Counter';
-import TextChange from './9ex-events/TextChange';
+// import Counter from './9ex-events/Counter';
+// import TextChange from './9ex-events/TextChange';
+// import LifeCycleMethodsInReact from './10ex-hooks/LifeCycleMethodsInReact';
+// import UseStateExample from './10ex-hooks/UseStateExample';
+// import UseEffectExample from './10ex-hooks/UseEffectExample';
+import FormValidation from './10ex-hooks/FormValidation';
 
 
 
@@ -32,4 +36,4 @@ import TextChange from './9ex-events/TextChange';
 //     document.getElementById('lecture')
 //     );
 
-ReactDOM.render(<TextChange/>, document.getElementById("lecture"));
+ReactDOM.render(<FormValidation/>, document.getElementById("lecture"));
