@@ -17,6 +17,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 // import UseStateExample from './10ex-hooks/UseStateExample';
 // import UseEffectExample from './10ex-hooks/UseEffectExample';
 import FormValidation from './10ex-hooks/FormValidation';
+import AxiosExample from './11ex-axios/AxiosExample';
 
 
 
@@ -36,4 +37,4 @@ import FormValidation from './10ex-hooks/FormValidation';
 //     document.getElementById('lecture')
 //     );
 
-ReactDOM.render(<FormValidation/>, document.getElementById("lecture"));
+ReactDOM.render(<AxiosExample/>, document.getElementById("lecture"));
