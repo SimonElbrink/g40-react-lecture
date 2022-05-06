@@ -13,6 +13,7 @@ const AxiosExample = () => {
     const [id, setId] = useState();
 
 
+    //Find All
     const sendGetRequest = async () => {
 
         await axios.get(URL)
@@ -40,6 +41,7 @@ const AxiosExample = () => {
 
     }
 
+    //Find By Id
     const sendGetByIDRequest = async () =>{
         
 
@@ -70,6 +72,7 @@ const AxiosExample = () => {
     };
 
 
+    //Create / Post
     const sendPostRequest = async () => {
 
         const data = { firstName: "Åsa", lastName: "Jonsson", email: "asa.jonsson1@lexicon.se", title: ".Net Teacher"
@@ -100,6 +103,7 @@ const AxiosExample = () => {
 
     }
 
+    //Update / Put
     const sendPutRequest = async () => {
 
         const data = { id:2,
@@ -133,13 +137,34 @@ const AxiosExample = () => {
             })
     }
 
+    //Delete By ID
     const sendDeleteRequest = async () =>{
 
-        await axios.delete(URL + id);
+        await axios.delete(URL + id)
+        .then((response) => {
+            console.log(response);
 
-        console.log("Deleted Perosn with id:", id);
+            if(response.status == 204) {
+                setMessage("Operation Done: Deleted!")
+
+                setPeople(response.data);
+            }else{
+                setError("operation has Failed! Error: ", response.status)
+            }
+            setError();
+        })
+        .catch((er) => {
+            console.log("ERROR: ", er);
+            if(er.message){
+                setError(er.message);
+            }else{
+                setError(er);
+            }
+            setMessage();
+        })
     }
 
+    //Returning Component
     return (
         <div className='container'>
             <h3>Axios Example!</h3>
@@ -147,21 +172,39 @@ const AxiosExample = () => {
             {message && <div className='alert alert-success'>{message}</div>}
             {error && <div className='alert alert-danger'>{error}</div>}
 
-            <button className='btn btn-info' onClick={sendGetRequest}>Fetch All Data From API</button>
+            <div className="row">
+                <div className="col">
+                    <button type="button" className="btn btn-info" onClick={sendGetRequest}>Get All person Data From API</button>
+                </div>
+            </div>
+            <br/>
+            <div className="row">
+                <div className="col-3">
+                    <button type="button" className="btn btn-primary" onClick={sendGetByIDRequest}>Get By Id</button>
+                </div>
+                <div className="col-3">
+                    <input className='form-control' type="text" name="id" id="findByID" onChange={(e)=> setId(e.target.value)}/>
+                </div>
+            </div>
+            <br/>
+            <div className="row">
+                <div className="col">
+                    <button type="button" className="btn btn-success" onClick={sendPostRequest}>Post Data To API</button>
+                </div>
+            </div>  
+            <br/>
+            <div className="row">
+                <div className="col">
+                <button type="button" className="btn btn-warning" onClick={sendPutRequest}>Put Data To API</button>
+                </div>
+            </div>
 
-            <button className='btn btn-info' onClick={sendGetByIDRequest}>Fetch By ID From API</button>
-
-            <input className='form-control' type="text" name="id" id="findByID" onChange={(e)=> setId(e.target.value)}/>
-
-            <h1>ID: {id}</h1>
-
-            <button className='btn btn-warning' onClick={sendPostRequest}>Post to API</button>
-            <button className='btn btn-warning' onClick={sendPutRequest}>Put to API</button>
-
-            <button className='btn btn-danger' onClick={sendDeleteRequest}>Delete</button>
-            
-
-
+            <br/>
+            <div className="row">
+                <div className="col">
+                <button className='btn btn-danger' onClick={sendDeleteRequest}>Delete Data From API</button>
+                </div>
+            </div>
         </div>
     );
 };
