@@ -18,6 +18,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 // import UseEffectExample from './10ex-hooks/UseEffectExample';
 import FormValidation from './10ex-hooks/FormValidation';
 import AxiosExample from './11ex-axios/AxiosExample';
+import RouterExample from './12ex-router/RouterExample';
 
 
 
@@ -37,4 +38,4 @@ import AxiosExample from './11ex-axios/AxiosExample';
 //     document.getElementById('lecture')
 //     );
 
-ReactDOM.render(<AxiosExample/>, document.getElementById("lecture"));
+ReactDOM.render(<RouterExample/>, document.getElementById("lecture"));
