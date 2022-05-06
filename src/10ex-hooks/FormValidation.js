@@ -23,7 +23,7 @@ const BasicFormValidation = () => {
         let isValid = true;
         let _errors = { ...errors }
 
-        if (email == '') {
+        if (email === '') {
             _errors.email = "Email Address is Required!"
             isValid = false;
         } else {
@@ -102,10 +102,14 @@ const HookFormValidation = () => {
 }
 
 
-
 const FormValidation = () => {
     return (
-        <div>
+        <div className='container'>
+            <h3 className=''>Basic Form Validation</h3>
+            <BasicFormValidation/>
+            <hr/>   
+
+            <h3 className=''>Hook-Form Validation</h3>
             <HookFormValidation />
         </div>
     );
