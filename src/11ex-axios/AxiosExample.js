@@ -49,7 +49,7 @@ const AxiosExample = () => {
         .then((response) => {
             console.log(response);
 
-            if(response.status == 200) {
+            if(response.status === 200) {
                 setMessage("Operation Done!")
 
                 setPeople(response.data);
@@ -82,7 +82,7 @@ const AxiosExample = () => {
         .then((response) => {
             console.log(response);
 
-            if(response.status == 201) {
+            if(response.status === 201) {
                 setMessage("Operation Done: Added!")
 
                 setPeople(response.data);
@@ -117,7 +117,7 @@ const AxiosExample = () => {
             .then((response) => {
                 console.log(response);
     
-                if(response.status == 204) {
+                if(response.status === 204) {
                     setMessage("Operation Done: Updated!")
     
                     setPeople(response.data);
@@ -144,7 +144,7 @@ const AxiosExample = () => {
         .then((response) => {
             console.log(response);
 
-            if(response.status == 204) {
+            if(response.status === 204) {
                 setMessage("Operation Done: Deleted!")
 
                 setPeople(response.data);
