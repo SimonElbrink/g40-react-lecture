@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link, useHistory, useLocation, useParams, Redirect} from "react-router-dom";
 
+//npm install react-router-dom@5.3.0
 const RouterExampleV5 = () => {
 
     return (
@@ -119,7 +120,7 @@ const ShowData = () =>{
     console.log("Params in ShowData component: ", params)
 
 
-    if(params.id == 0 || params.id == "undefined" ){
+    if(params.id === 0 || params.id === "undefined" ){
         return(
             <Redirect to={{
                 pathname: "/error",
