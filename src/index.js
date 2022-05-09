@@ -16,9 +16,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 // import LifeCycleMethodsInReact from './10ex-hooks/LifeCycleMethodsInReact';
 // import UseStateExample from './10ex-hooks/UseStateExample';
 // import UseEffectExample from './10ex-hooks/UseEffectExample';
-import FormValidation from './10ex-hooks/FormValidation';
-import AxiosExample from './11ex-axios/AxiosExample';
-import RouterExample from './12ex-router/RouterExample';
+import RouterExampleV5 from './12ex-router/RouterExample';
 
 
 
@@ -38,4 +36,4 @@ import RouterExample from './12ex-router/RouterExample';
 //     document.getElementById('lecture')
 //     );
 
-ReactDOM.render(<RouterExample/>, document.getElementById("lecture"));
+ReactDOM.render(<RouterExampleV5/>, document.getElementById("lecture"));
