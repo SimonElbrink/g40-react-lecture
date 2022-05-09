@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link, useHistory, useLocation, useParams, Redirect} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link, useHistory, useLocation, useParams, Redirect } from "react-router-dom";
 
 //npm install react-router-dom@5.3.0
 const RouterExampleV5 = () => {
@@ -19,16 +19,13 @@ const RouterExampleV5 = () => {
                     <Route path="/about" >
                         <About />
                     </Route>
-                   
 
                     <Route path="/register" component={Register} />
 
-                    <Redirect from="/person/:id" to="/data/:id"/>
+                    <Redirect from="/person/:id" to="/data/:id" />
                     <Route path={"/data/:id"} component={ShowData} />
 
                     <Route path={"/error"} component={ErrorPage} />
-
-
                 </Switch>
             </Router>
         </div>
@@ -36,24 +33,24 @@ const RouterExampleV5 = () => {
 };
 
 const Header = () => {
-    return(
-    <Fragment>
-       <ul className="nav nav-pills nav-fill bg-dark text-white">
-            <li className="nav-item">
-                <Link className="nav-link" to="/">Welcome</Link>
-            </li>
-            <li className="nav-item">
-                <Link className="nav-link" to="/home">Home</Link>
-            </li>
-            <li className="nav-item">
-                <Link className="nav-link" to="/register">Register</Link>
-            </li>
-            <li className="nav-item">
-                <Link className="nav-link" to="/about">About Us</Link>
-            </li>
-        </ul>
-    </Fragment>
-  );
+    return (
+        <Fragment>
+            <ul className="nav nav-pills nav-fill bg-dark text-white">
+                <li className="nav-item">
+                    <Link className="nav-link" to="/">Welcome</Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link" to="/home">Home</Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link" to="/register">Register</Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link" to="/about">About Us</Link>
+                </li>
+            </ul>
+        </Fragment>
+    );
 }
 
 
@@ -91,14 +88,14 @@ const Register = () => {
 
 
     const redirectToData = () => {
-        history.push("/data/"+ id)
+        history.push("/data/" + id)
     }
 
     return (
         <Fragment>
             <div className='row'>
                 <div className='col'>
-                    <input type="text" name="id" placeholder="Enter Id" onChange={(e) => {setId(e.target.value)}} />
+                    <input type="text" name="id" placeholder="Enter Id" onChange={(e) => { setId(e.target.value) }} />
                 </div>
                 <div className='col'>
                     <button className='btn btn-info' onClick={redirectToData}>Submit</button>
@@ -108,7 +105,7 @@ const Register = () => {
     )
 }
 
-const ShowData = () =>{
+const ShowData = () => {
 
     let params = useParams();
 
@@ -120,20 +117,21 @@ const ShowData = () =>{
     console.log("Params in ShowData component: ", params)
 
 
-    if(params.id === 0 || params.id === "undefined" ){
-        return(
+    if (params.id === 0 || params.id === "undefined") {
+        return (
             <Redirect to={{
                 pathname: "/error",
-                state: {message: "Param is not Valid",
-                path: location.pathname
-            }
+                state: {
+                    message: "Param is not Valid",
+                    path: location.pathname
+                }
             }}
             />
         )
     }
 
 
-    return(
+    return (
         <h3>Id Was: {params.id}</h3>
     )
 
@@ -144,12 +142,12 @@ const ErrorPage = () => {
 
     const location = useLocation();
 
-    console.log("location in errorPage: ",location);
+    console.log("location in errorPage: ", location);
 
-    return(
+    return (
         <div>
             Error at Page! : {location.state.message}
-            <br/>
+            <br />
             Error Path  : {location.state.path}
         </div>
     )
