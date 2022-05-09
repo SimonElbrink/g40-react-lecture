@@ -20,7 +20,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 // import FormValidation from './10ex-hooks/FormValidation';
 // import AxiosExample from './11ex-axios/AxiosExample';
 
-import RouterExampleV5 from './12ex-router/RouterExampleV5';
+import RouterExampleV6 from './12ex-router/RouterExampleV6';
 
 
 
@@ -40,4 +40,4 @@ import RouterExampleV5 from './12ex-router/RouterExampleV5';
 //     document.getElementById('lecture')
 //     );
 
-ReactDOM.render(<RouterExampleV5/>, document.getElementById("lecture"));
+ReactDOM.render(<RouterExampleV6 />, document.getElementById("lecture"));
