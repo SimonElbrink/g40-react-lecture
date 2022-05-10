@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route, Link, Navigate, useNavigate, us
 
 //npm install react-router-dom@6.3.0
 const RouterExampleV6 = () => {
-
     return (
         <div className="container">
             <Router>
@@ -16,7 +15,7 @@ const RouterExampleV6 = () => {
                     <Route path="register" element={<Register />} />
                     <Route path={"data/:id"} element={<ShowData />} />
                     <Route path={"error"} element={<ErrorPage />} />
-                    <Route path={"*"} element={<Navigate replace to={"/error"} state={{message: "Path not available"}}/>} />
+                    <Route path={"*"} element={<Navigate replace to={"/error"} state={{ message: "Path not available" }} />} />
                 </Routes>
             </Router>
         </div>
@@ -50,14 +49,16 @@ const Home = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
-    console.log("useNavigate", navigate);
     console.log(location)
 
     return (
         <Fragment>
             <h3>Home</h3>
-            <button className='btn btn-outline-danger' onClick={() => navigate(-1)}>Back</button>
-            <button className='btn btn-outline-primary' onClick={() => navigate("/about")}>Redirect to About Page</button>
+            <br />
+
+            <button className="btn btn-outline-danger" onClick={() => navigate(-1)}>Back</button>
+            <button className="btn btn-outline-success" onClick={() => navigate(1)}>Forward</button>
+            <button className="btn btn-outline-primary" onClick={() => navigate('/about')}>Redirect To About Us</button>
         </Fragment>
     )
 }
@@ -84,55 +85,50 @@ const Register = () => {
 
     return (
         <Fragment>
-            <div className='row'>
-                <div className='col'>
-                    <input type="text" name="id" placeholder="Enter Id" onChange={(e) => { setId(e.target.value) }} />
+            <div className="row mt-3 justify-content-center">
+                <div className="col-6">
+                    <input type="text" name="id" className="form-control" placeholder="Enter Id" onChange={(e) => { setId(e.target.value) }} />
                 </div>
-                <div className='col'>
-                    <button className='btn btn-info' onClick={redirectToData}>Submit</button>
+                <div className="col-2">
+                    <button type="button" className='btn btn-info' onClick={redirectToData}>Submit</button>
                 </div>
             </div>
         </Fragment>
-    )
+    );
 }
 
 const ShowData = () => {
 
     let params = useParams();
+    const [id, setId] = useState(params.id);
 
     const location = useLocation();
 
-    console.log("ShowData: ", location)
-
-
+    console.log("STATE: ", location)
     console.log("Params in ShowData component: ", params)
 
-
-    if (params.id == 0 || params.id === "undefined") {
+    if (id === "0" || id === "undefined") {
         return (
-            <Navigate replace to={"/error"} state={{message: "Param is not Valid"}}/>
+            <Navigate replace to={"/error"}
+                state={{ message: "Param is not Valid" }} />
         )
     }
 
-
     return (
-        <h3>Id Was: {params.id}</h3>
+        <h3>Id Was: {id}</h3>
     )
-
-
 }
 
 const ErrorPage = () => {
 
     const location = useLocation();
 
-
     console.log("location in errorPage: ", location);
 
     return (
-        <div>
+        <Fragment>
             Error at Message: <b>{location.state.message}</b>
-        </div>
+        </Fragment>
     )
 }
 
